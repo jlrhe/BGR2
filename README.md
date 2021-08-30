@@ -1,3 +1,9 @@
+Front-end for board game randomizer 2. (1, which was left unfinished can be found in my github).
+
+Goal: Fetches user collections of owned boardgames from Board Game Geek (BGG) api and lets you randomly select a game to play. Allows fetching multiple collections to one list, so that the game can be selected from any game of the collections of participants of the game night.  
+  
+  Will be later expanded with a backend to provide extra functionality, like manually adding min/max players and playtime to games and using them as filters (BGG does not provide these properties from the API and I suspect scraping them would violate copyright/terms)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
