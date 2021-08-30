@@ -1,0 +1,17 @@
+.fetch {
+  height: 2em;
+  margin: 10px 0 10px 0;
+  background-color: #0645ad;
+  color: #FFF;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  font-size: 1.3em;
+  padding: 0 20px;
+}
+.navigation:hover {
+  text-decoration: underline;
+}
+button:disabled {
+  color: rgb(54, 53, 53);
+}

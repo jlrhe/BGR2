@@ -1,0 +1,8 @@
+.listContainer {
+  text-align: left;
+  width: 70%;
+  margin-left: 5%;
+}
+.gameListItem {
+  font-size: 1.3em;
+}
