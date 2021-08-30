@@ -1,14 +1,22 @@
-const xmlToJson = (xml) => {
+// Changes XML to JSON
+
+function xmlToJson(xml) {
   // Create the return object
-  var obj = {};
+  var obj = {},
+    i,
+    j,
+    attribute,
+    item,
+    nodeName,
+    old;
 
   if (xml.nodeType === 1) {
     // element
     // do attributes
     if (xml.attributes.length > 0) {
       obj["@attributes"] = {};
-      for (var j = 0; j < xml.attributes.length; j++) {
-        var attribute = xml.attributes.item(j);
+      for (j = 0; j < xml.attributes.length; j = j + 1) {
+        attribute = xml.attributes.item(j);
         obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
       }
     }
@@ -19,14 +27,14 @@ const xmlToJson = (xml) => {
 
   // do children
   if (xml.hasChildNodes()) {
-    for (var i = 0; i < xml.childNodes.length; i++) {
-      var item = xml.childNodes.item(i);
-      var nodeName = item.nodeName;
-      if (typeof obj[nodeName] == "undefined") {
+    for (i = 0; i < xml.childNodes.length; i = i + 1) {
+      item = xml.childNodes.item(i);
+      nodeName = item.nodeName;
+      if (obj[nodeName] === undefined) {
         obj[nodeName] = xmlToJson(item);
       } else {
-        if (typeof obj[nodeName].push == "undefined") {
-          var old = obj[nodeName];
+        if (obj[nodeName].push === undefined) {
+          old = obj[nodeName];
           obj[nodeName] = [];
           obj[nodeName].push(old);
         }
@@ -35,6 +43,6 @@ const xmlToJson = (xml) => {
     }
   }
   return obj;
-};
+}
 
 export default xmlToJson;

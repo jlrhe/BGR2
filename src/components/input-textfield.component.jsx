@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./input-textfield.styles.css";
 
-const InputTextfield = ({ handleInput }) => {
+const InputTextfield = ({ handleInput, handleSubmit }) => {
   const [inputfield, setInputfield] = useState("");
 
   const handleFieldChange = (event) => {
-    console.log(event.target.value);
     setInputfield(event.target.value);
   };
-  const handleSubmit = (event) => {
+  const submit = (event) => {
     event.preventDefault();
-    handleInput(inputfield);
+    handleSubmit(inputfield);
   };
+  useEffect(() => {
+    handleInput(inputfield);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [inputfield]);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={submit}>
       <label htmlFor="usernameinput">BGG Username: </label>
       <input
         id="usernameinput"

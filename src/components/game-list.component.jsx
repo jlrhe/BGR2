@@ -5,10 +5,15 @@ const GameList = ({ games }) => {
   return (
     <section className="listContainer">
       <h2 className="listHeader">List of Games</h2>
-      <dl className="gameList" title="List of Games">
-        <dt className="gameListItem">Game</dt>
-        <dd className="gamelistItemDescription">Description</dd>
-      </dl>
+      <ul className="gameList" title="List of Games">
+        {games.items.item.map((item) => {
+          return (
+            <li key={item["@attributes"].collid} className="gameListItem">
+              {item.name["#text"]}
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 };
