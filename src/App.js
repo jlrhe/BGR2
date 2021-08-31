@@ -4,19 +4,31 @@ import GameList from "./components/game-list.component";
 import InputTextfield from "./components/input-textfield.component";
 import xmlToJson from "./functions/xmlToJson";
 import Button from "./components/button.component";
+import PickedGame from "./components/picked-game.component";
 
 function App() {
   const [games, setGames] = useState({});
   const [status, setStatus] = useState("No collections loaded.");
   const [username, setUsername] = useState("");
+  const [randomGame, setRandomGame] = useState(-1);
 
   const updateUsername = (user) => {
     setUsername(user);
   };
   const clearCollection = () => {
     setGames({});
+    setRandomGame(-1);
   };
-  const pickRandomGame = () => {};
+  const pickRandomGame = () => {
+    let randomNumber = Math.floor(
+      Math.random() * Object.keys(games.items.item).length
+    );
+    setRandomGame(randomNumber);
+    console.log(
+      "random: ",
+      Math.floor(Math.random() * Object.keys(games.items.item).length)
+    );
+  };
 
   const fetchData = () => {
     fetch(
@@ -77,12 +89,13 @@ function App() {
         text="Pick a Random Game"
         disabled={!games.items}
       ></Button>
+      <PickedGame games={games} randomGame={randomGame}></PickedGame>
       <br />
       <Button
         type="clear"
         handleClick={clearCollection}
         text="Clear Collection"
-        disabled={games.items == null}
+        disabled={!games.items}
       ></Button>
       <GameList games={games}></GameList>
     </div>
