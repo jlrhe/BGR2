@@ -1,0 +1,9 @@
+.fetchButton {
+  background-color: rgb(17, 79, 179);
+  color: white;
+  font-size: 1.3em;
+  margin: 5px;
+  padding: 3px 10px;
+  border: none;
+  border-radius: 4px;
+}

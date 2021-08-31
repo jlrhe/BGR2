@@ -24,7 +24,10 @@ const InputTextfield = ({ handleInput, handleSubmit }) => {
         value={inputfield}
         onChange={handleFieldChange}
       />
-      <button type="submit">Fetch Collection</button>
+      <br />
+      <button className="fetchButton" type="submit">
+        Fetch Collection
+      </button>
     </form>
   );
 };
