@@ -6,6 +6,7 @@ import xmlToJson from "./functions/xmlToJson";
 import Button from "./components/button.component";
 import PickedGame from "./components/picked-game.component";
 
+//I should write a useEffect to check if the collection has games, user exists etc and set a state accordingly. This would simplify error handling.
 function App() {
   const [games, setGames] = useState({});
   const [status, setStatus] = useState("No collections loaded.");
