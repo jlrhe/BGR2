@@ -1,7 +1,6 @@
 Front-end for board game randomizer 2. (1, which was left unfinished can be found in my github at least until I finish building a backend for this).  
   
 TODO:  
--Select a random game  
 -Combine multiple collections  
 -Styling and usability  
   
