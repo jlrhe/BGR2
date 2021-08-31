@@ -1,12 +1,15 @@
-.usernameInput {
-  font-size: 1.2em;
+.clear {
+  background-color: yellow;
+  color: black;
+  font-size: 1.3em;
   margin-top: 3px;
-  min-width: 244px;
   padding: 3px 0;
-  border: 3px solid black;
+  border: 3px outset black;
   border-radius: 4px;
+  cursor: pointer;
+  min-width: 250px;
 }
-.fetchButton {
+.pickRandom {
   background-color: rgb(17, 79, 179);
   color: white;
   font-size: 1.3em;
@@ -16,4 +19,10 @@
   border-radius: 4px;
   cursor: pointer;
   min-width: 250px;
+}
+
+button:disabled {
+  color: rgb(140, 140, 140);
+  background-color: rgb(200, 200, 200);
+  cursor: default;
 }

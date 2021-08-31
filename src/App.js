@@ -3,6 +3,7 @@ import "./App.css";
 import GameList from "./components/game-list.component";
 import InputTextfield from "./components/input-textfield.component";
 import xmlToJson from "./functions/xmlToJson";
+import Button from "./components/button.component";
 
 function App() {
   const [games, setGames] = useState({});
@@ -12,6 +13,10 @@ function App() {
   const updateUsername = (user) => {
     setUsername(user);
   };
+  const clearCollection = () => {
+    setGames({});
+  };
+  const pickRandomGame = () => {};
 
   const fetchData = () => {
     fetch(
@@ -37,7 +42,6 @@ function App() {
         }
         if (response.status === 200) {
           setStatus(`Collection fethced.`);
-          setGames({});
           return response.text();
         } else {
           setStatus(`Something weird happened. Statuscode: ${response.status}`);
@@ -57,68 +61,32 @@ function App() {
       });
   };
 
-  if (games.errors) {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Board Game Randomizer 2</h1>
-        </header>
-        <InputTextfield
-          handleInput={updateUsername}
-          handleSubmit={fetchData}
-        ></InputTextfield>
-        <div>
-          {status}
-          <br />
-          {games.errors.error.message["#text"]}
-        </div>{" "}
-      </div>
-    );
-  } else if (games.items == null) {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Board Game Randomizer 2</h1>
-        </header>
-        <InputTextfield
-          handleInput={updateUsername}
-          handleSubmit={fetchData}
-        ></InputTextfield>
-        <div>{status}</div>
-      </div>
-    );
-  } else if (games.items.item == null) {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Board Game Randomizer 2</h1>
-        </header>
-        <InputTextfield
-          handleInput={updateUsername}
-          handleSubmit={fetchData}
-        ></InputTextfield>
-        <div>
-          {status}
-          <br />
-          This user has no games in his collection
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Board Game Randomizer 2</h1>
-        </header>
-        <InputTextfield
-          handleInput={updateUsername}
-          handleSubmit={fetchData}
-        ></InputTextfield>
-        <div>{status}</div>
-        <GameList games={games}></GameList>
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1>Board Game Randomizer 2</h1>
+      </header>
+      <div>{status}</div>
+      <InputTextfield
+        handleInput={updateUsername}
+        handleSubmit={fetchData}
+      ></InputTextfield>
+      <Button
+        type="pickRandom"
+        handleClick={pickRandomGame}
+        text="Pick a Random Game"
+        disabled={!games.items}
+      ></Button>
+      <br />
+      <Button
+        type="clear"
+        handleClick={clearCollection}
+        text="Clear Collection"
+        disabled={games.items == null}
+      ></Button>
+      <GameList games={games}></GameList>
+    </div>
+  );
 }
 
 export default App;

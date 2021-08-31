@@ -19,8 +19,10 @@ const InputTextfield = ({ handleInput, handleSubmit }) => {
   return (
     <form onSubmit={submit}>
       <label htmlFor="usernameinput">BGG Username: </label>
+      <br />
       <input
         id="usernameinput"
+        className="usernameInput"
         value={inputfield}
         onChange={handleFieldChange}
       />
