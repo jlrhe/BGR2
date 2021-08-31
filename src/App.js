@@ -31,6 +31,7 @@ function App() {
   };
 
   const fetchData = () => {
+    setRandomGame(-1);
     fetch(
       `https://frozen-dawn-34650.herokuapp.com/https://www.boardgamegeek.com/xmlapi2/collection?username=${username}&own=1`
     )
