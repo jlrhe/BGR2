@@ -3,6 +3,12 @@
   width: 70%;
   margin-left: 5%;
 }
+.gameList {
+  list-style: none;
+}
 .gameListItem {
   font-size: 1.3em;
+}
+.gameListItem:nth-child(2n-1) {
+  background-color: #ddd;
 }

@@ -4,15 +4,27 @@ import "./game-list.styles.css";
 const GameList = ({ games }) => {
   //usually invalid username
   if (games.errors) {
-    return <div>{games.errors.error.message["#text"]}</div>;
+    return (
+      <section className="listContainer">
+        <p>{games.errors.error.message["#text"]}</p>
+      </section>
+    );
   }
-  //collection items, null or undefined. Either collection is empty or fetch is qued at BGG api
+  //collection items, null or undefined. Either games is empty or fetch is qued at BGG api
   else if (games.items == null) {
-    return null;
+    return (
+      <section className="listContainer">
+        <p>Nothing to show</p>
+      </section>
+    );
   }
   //no games in collection
   else if (games.items.item == null) {
-    return <div>This user has no games in his collection</div>;
+    return (
+      <section className="listContainer">
+        <p>This user has no games in his collection</p>
+      </section>
+    );
   }
   //we found a user who actually has games
   else

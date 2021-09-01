@@ -1,0 +1,10 @@
+.list-component-container {
+  text-align: left;
+  margin-left: 5%;
+}
+.list-component-list {
+  list-style: none;
+  padding-left: 0;
+}
+.list-component-item {
+}
