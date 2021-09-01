@@ -13,7 +13,7 @@ function App() {
   const [status, setStatus] = useState("No collections loaded.");
   const [username, setUsername] = useState("");
   const [randomGame, setRandomGame] = useState(-1);
-  const [fetchedUsers, setFetchedUsers] = useState([""]);
+  const [fetchedUsers, setFetchedUsers] = useState([]);
 
   const updateUsername = (user) => {
     setUsername(user);
@@ -21,6 +21,7 @@ function App() {
   const clearCollection = () => {
     setGames({});
     setRandomGame(-1);
+    setFetchedUsers([]);
   };
   const pickRandomGame = () => {
     let randomNumber = Math.floor(
