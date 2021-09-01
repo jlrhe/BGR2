@@ -1,7 +1,7 @@
 Front-end for board game randomizer 2. (1, which was left unfinished can be found in my github at least until I finish building a backend for this).  
   
 TODO:  
--Combine multiple collections  
+-Remove duplicates and sort merged collections  
 -Styling and usability  
   
 Goal: Fetches user collections of owned boardgames from Board Game Geek (BGG) api and lets you randomly select a game to play. Allows fetching multiple collections to one list, so that the game can be selected from any game of the collections of participants of the game night.  
