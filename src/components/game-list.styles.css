@@ -5,6 +5,7 @@
 }
 .gameList {
   list-style: none;
+  padding: 0;
 }
 .gameListItem {
   font-size: 1.3em;

@@ -5,6 +5,7 @@
   padding: 3px 0;
   border: 3px solid black;
   border-radius: 4px;
+  text-align: center;
 }
 .fetchButton {
   background-color: rgb(17, 79, 179);
